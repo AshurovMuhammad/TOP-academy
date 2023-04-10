@@ -2,15 +2,16 @@ from django.db.models import Count
 from .models import *
 
 menu = [
-    {'title': 'Добавить статью', 'url_name': 'add_page'},
-    {'title': 'Войти', 'url_name': 'index'},
+    {'title': "Maqola qo'shish", 'url_name': 'add_page'},
 ]
 
 
 class DataMixin:
+    paginate_by = 2
+
     def get_user_context(self, **kwargs):
         context = kwargs
-        cats = Category.objects.anotate(Count('blog'))
+        cats = Category.objects.annotate(Count('blog'))
 
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:

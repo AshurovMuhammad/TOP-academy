@@ -1,11 +1,32 @@
-from django.shortcuts import render
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import *
 from .forms import *
 from .utils import *
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'blog/register.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Registratsiya')
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class LoginUser(DataMixin, LoginView):
+    form_class = AuthenticationForm
+    template_name = 'blog/login.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Avtorizatsiya')
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 class BlogHome(DataMixin, ListView):
@@ -15,10 +36,7 @@ class BlogHome(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = 'Главная страница'
-        # context['cat_selected'] = 0
-        # context['menu'] = menu
-        c_def = self.get_user_context(title='Главная страница')
+        c_def = self.get_user_context(title='Bosh sahifa')
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
@@ -33,8 +51,6 @@ class ShowPost(DataMixin, DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = context['post']
-        # context['menu'] = menu
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -46,11 +62,8 @@ class BlogCategory(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = 'Категория - ' + str(context['posts'][0].cat)
-        # context['cat_selected'] = context['posts'][0].cat_id
-        # context['menu'] = menu
         c = Category.objects.get(slug=self.kwargs['cat_slug'])
-        c_def = self.get_user_context(title='Категория - ' + str(c.name), cat_selected=c.pk)
+        c_def = self.get_user_context(title='Kategoriya - ' + str(c.name), cat_selected=c.id)
         return dict(list(context.items()) + list(c_def.items()))
 
 
@@ -62,7 +75,5 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = 'Довавление статьи'
-        # context['menu'] = menu
-        c_def = self.get_user_context(title='Довавление статьи')
+        c_def = self.get_user_context(title="Maqola qo'shish")
         return dict(list(context.items()) + list(c_def.items()))
