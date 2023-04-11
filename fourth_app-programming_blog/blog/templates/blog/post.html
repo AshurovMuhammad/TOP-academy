@@ -8,7 +8,7 @@
     <img src="{{ post.photo.url }}" class="image" alt="">
     {% endif %}
 
-    {{ post.content|linebreaks }}
+    {{ post.content|safe }}
 </div>
 
 {% endblock %}

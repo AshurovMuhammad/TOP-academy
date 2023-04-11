@@ -14,7 +14,7 @@
             {% endif %}
 
             <h2><a href="{{ p.get_absolut_url }}">{{ p.title }}</a></h2>
-            <p>{{ p.content|linebreaks|truncatewords:50 }}</p>
+            <p>{{ p.content|striptags|truncatewords:50 }}</p>
         </div>
         <p class="date">Sana: {{ p.time_update|date:"d-m-Y H:i:s" }}</p>
     </li>

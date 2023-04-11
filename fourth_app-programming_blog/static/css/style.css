@@ -1,0 +1,178 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #264b5d;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wrap{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content .wrap{
+    background: #FFF;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #81d4fa;
+    text-decoration: none;
+    padding: 20px;
+}
+a:hover{
+    color: #FFC;
+}
+.header{
+    background: #121212;
+}
+.meinmenu{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: space-between;
+}
+.logo{
+    flex-basis: 40%;
+}
+.last{
+    flex-basis: 30%;
+    text-align: right;
+    color: #81d4fa;
+}
+
+.sidebar ul{
+    width: 320px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+.sidebar a{
+    padding: 20px;
+    background: #264b5d;
+    display: block;
+    border: 1px solid #FFF;
+    font-weight: bold;
+    font-size: 18px;
+}
+.selected{
+    font-size: 18px;
+    padding: 20px;
+    border: 1px solid #FFF;
+    font-weight: bold;
+    background: #81d4fa;
+}
+.main li{
+    border: 1px solid #264b5d;
+    margin-bottom: 40px;
+}
+.image{
+    max-width: 50%;
+    float: left;
+    margin-right: 20px;
+}
+.first, .date{
+    padding: 10px 20px;
+    background: #264b5d;
+    font-size: 18px;
+    color: #FFF;
+    margin: 0;
+}
+.text{
+    padding: 20px 20px 0;
+}
+.text h2{
+    margin-top: 0;
+}
+.text a{
+    padding-left: 0;
+}
+.text a:hover{
+    color: #264b5d;
+}
+.post h1{
+    margin-top: 0;
+}
+.post{
+    font-size: 16px;
+}
+
+.form-input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+button{
+    background: #81d4fa;
+    border: 2px solid #264b5d;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+form label{
+    font-size: 18px;
+}
+
+.list-pages{
+    display: flex;
+    justify-content: center;
+}
+
+.page-num-selected{
+    background: #81d4fa;
+    padding: 20px;
+}
+
+.list-pages a{
+    background: #264b5d;
+    padding: 20px;
+    display: block;
+    color: #FFF;
+}
+
+.page-num{
+    margin: 6px;
+    font-weight: bold;
+}
+
+input, textarea{
+    width: 100%;
+    margin-top: 6px;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+label{
+    font-size: 20px;
+}
+
+#id_is_published{
+    width: 20px;
+    height: 20px;
+}
+
+#id_cat{
+    font-size: 20px;
+    padding: 4px;
+}
+
+.last a{
+    display: inline;
+}
+
+.logout h2{
+    margin-bottom: 40px;
+}
+
+.logout a{
+    background: #81d4fa;
+    color: #264b5d;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 86px;
+}

@@ -3,6 +3,7 @@ from .models import *
 
 menu = [
     {'title': "Maqola qo'shish", 'url_name': 'add_page'},
+    {'title': "Qayta aloqa", 'url_name': 'contact'},
 ]
 
 
